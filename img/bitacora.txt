@@ -8,4 +8,6 @@
 
 2. 404 Not Found - significa que la pagina no fue encontrada debido a que no existe.
 
-3. html - es el encargado de la maquetacion del proyecto 
+3. html - es el encargado de la maquetacion del proyecto, estructura y contenido, css es quien
+define la apariencia visual, el JavaScript es quien nos da las funcionalidades. 
+
