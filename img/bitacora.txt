@@ -35,8 +35,15 @@ NAV
 |-inicio
 |-tarifas
 |-rutas
-|-reservas
+|-reservaS
 
----------------------------------------------------------------
-    tarifas.html
-|-
+-----*****RESERVAS SIN ERRORES:*****-----
+Tabla de prueba 
+envio en blanco: pide llenar datos.
+documento con numero 12: pide llenar campo completo 
+fecha superior a la permitida:pide modificacion
+numero de bicicletas superior a la permitida: pide editar
+enviar sin aceptar: pide enviar 
+
+
+
