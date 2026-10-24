@@ -6,18 +6,67 @@
     <title>Document</title>
 </head>
 <body>
-    
-<h1>Reserva tu bicicleta</h1>
-<p>Contactanos</p> <a href="hola@ruedalibre.example" target=""_blank">GMAIL</a>
-<ul>
-    <li>Inicio <a href="../index.html">Inicio</a></li>
-    <li>Tarifas <a href="../paginas/tarifas.html">Tarifas</a></li>
-    <li>Rutas <a href="../paginas/tarifas.html#planes">Planes</a></li>
-    <li>Reservas <a href="../paginas/reservas.html">Reservas</a></li>
-</ul>
 
-<dd>Rueda libre</dd>
-<dd><a href="hola@ruedalibre.example">Contactanos</a></dd>
-<dd>2026</dd>
+    <header>
+        <h1>Reserva tu bicicleta</h1>
+        <p>Contactanos</p> <a href="hola@ruedalibre.example" target=""_blank">GMAIL</a>
+        
+        <nav>
+            <ul>
+                <li>Inicio <a href="../index.html">Inicio</a></li>
+                <li>Tarifas <a href="../paginas/tarifas.html">Tarifas</a></li>
+                <li>Rutas <a href="../paginas/tarifas.html#planes">Planes</a></li>
+                <li>Reservas <a href="../paginas/reservas.html">Reservas</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="formulario-reserva">
+            <form action="/enviar-reserva" method="post">
+                <fieldset>
+                    <legend>Tus datos:</legend>
+                    <p>
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre">
+
+                        <label for="edad">Edad:</label>
+                        <input type="number" id="edad" name="edad">
+
+                        <label for="email">Email:</label>
+                        <input type="text" id="email" name="email">
+                    </p>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Tu alquiler:</legend>
+                    <p>
+                        <label for="tiempo">Tiempo de arrendamiento:</label>
+                        <input type="number" id="tiempo" name="tiempo" min="10" required>
+                
+                        <label for="opciones">Selecciona un tamaño:</label>
+                            <select name="bicicleta" id="bicicleta">
+                                <option value="pequeña">pequeña</option>
+                                <option value="mediana">mediana</option>
+                                <option value="grande">grande</option>
+                            </select>  
+                    </p>                                
+                </fieldset>
+
+                <fieldset>
+                    <legend>Confirmacion:</legend>
+                    
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+
+    <footer>
+        <dd>Rueda libre</dd>
+        <dd><a href="hola@ruedalibre.example">Contactanos</a></dd>
+        <dd>2026</dd>
+    </footer>
+
 </body>
 </html>

@@ -11,3 +11,32 @@
 3. html - es el encargado de la maquetacion del proyecto, estructura y contenido, css es quien
 define la apariencia visual, el JavaScript es quien nos da las funcionalidades. 
 
+    MINI RETO - DIA 2 
+
+    index.html
+header:
+|-title
+|-img
+
+MAIN    
+|-section 1 - ¿Quienes somos?
+|-section 2 - Nuestros servicios 
+|-section 3 - ¿como alquilar?
+|-section 3 - encuentranos 
+
+FOOTER 
+|-direccion
+|-contactanos por email
+
+
+--------------------------------------------------------------
+    reservas.html
+NAV
+|-inicio
+|-tarifas
+|-rutas
+|-reservas
+
+---------------------------------------------------------------
+    tarifas.html
+|-
