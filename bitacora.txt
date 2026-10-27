@@ -1,0 +1,419 @@
+================================================================
+BITÁCORA - RUEDA LIBRE v1.0
+Sitio web informativo de alquiler de bicicletas en Medellín
+================================================================
+
+Los datos marcados con [COMPLETAR] son mediciones o resultados que dependen
+de tu navegador, de GitHub o de tus pruebas: reemplázalos por lo que veas tú.
+
+
+----------------------------------------------------------------
+MINIRETO 1 - KILÓMETRO 0: REPOSITORIO Y PÁGINA BASE
+----------------------------------------------------------------
+Repositorio: https://github.com/[COMPLETAR: usuario]/rueda-libre (público)
+Estructura inicial: index.html, paginas/, img/ (con al menos una imagen), bitacora.txt
+
+1. PETICIÓN DEL DOCUMENTO (DevTools > Network, recarga con Live Server)
+   URL completa:      http://127.0.0.1:5500/index.html   [CONFIRMAR puerto]
+   Protocolo:         http
+   Host:              127.0.0.1
+   Puerto:            5500   [CONFIRMAR]
+   Ruta:              /index.html
+   Método:            GET
+   Código de estado:  200 OK
+
+2. RUTA INEXISTENTE
+   URL probada:       http://127.0.0.1:5500/promociones.html
+   Código:            404 Not Found
+   Significado:       el servidor funciona, pero no existe ningún recurso en esa ruta.
+
+3. ROL DE HTML, CSS Y JAVASCRIPT EN RUEDA LIBRE
+   HTML:        estructura y contenido. Ej.: el <h1> con el nombre del negocio y la
+                lista de servicios.
+   CSS:         presentación visual. Ej.: aplicar el color de marca y la tipografía
+                Montserrat a los títulos.
+   JavaScript:  comportamiento. Ej.: validar el formulario de reservas antes de enviarlo.
+
+Commit: "feat: estructura inicial de Rueda Libre con index.html base y bitácora"
+
+
+----------------------------------------------------------------
+MINIRETO 2 - LA VITRINA DE RUEDA LIBRE
+----------------------------------------------------------------
+- Un solo <h1> (Rueda Libre); cuatro <h2> (¿Quiénes somos?, Nuestros servicios,
+  ¿Cómo alquilar?, Encuéntranos); un <h3> por cada servicio.
+- <strong> para la información clave (incluye casco y candado) y <em> para matices.
+- Lista numerada con los cuatro pasos y lista con viñetas con tres beneficios.
+- Tres imágenes de img/ (portada, bicicleta y ruta) con ruta relativa, alt y width.
+- Tres tipos de enlace:
+    Absoluto:  mapa de Google, con target="_blank" y rel="noopener noreferrer".
+    Correo:    mailto:hola@ruedalibre.example
+    Interno:   desde el primer párrafo hacia #Encuentranos.
+- Verificación en DevTools > Elements: el árbol coincide con el esquema.
+  Resultado: [COMPLETAR]
+- Network sin errores 404: [COMPLETAR]
+
+
+----------------------------------------------------------------
+MINIRETO 3 - TARIFAS CLARAS: TABLAS Y RUTAS RELATIVAS
+----------------------------------------------------------------
+Archivo: paginas/tarifas.html (título y descripción propios).
+
+Tablas
+- Cada tabla tiene <caption>, <thead> y <tbody>.
+- Encabezados de columna: <th scope="col">; primera celda de cada fila: <th scope="row">.
+- Las demás celdas son <td> y no hay celdas vacías.
+- La tabla de recorridos está en <section id="recorridos"> para poder enlazarla.
+- La información adicional (casco y candado, horarios, qué llevar) va en <p> y <ul>,
+  no en tablas: las tablas son solo para datos.
+
+Rutas relativas usadas
+  index.html            → tarifas            paginas/tarifas.html
+  paginas/tarifas.html  → inicio             ../index.html
+  paginas/tarifas.html  → logo               ../img/depositphotos_320007284-stock-illustration-bicycle-shop-service-bike-park.jpg
+  index.html            → tabla recorridos   paginas/tarifas.html#recorridos
+
+Network sin 404: [COMPLETAR]
+
+
+----------------------------------------------------------------
+MINIRETO 4 - RUEDA LIBRE v0.1: SITIO NAVEGABLE
+----------------------------------------------------------------
+Se creó paginas/reservas.html (h1 "Reserva tu bicicleta", correo con mailto: y
+horario en lista de definiciones), un menú común y un pie común en las tres páginas.
+
+TABLA DE RUTAS DEL MENÚ
+Origen                  → Destino        → Ruta escrita
+index.html              → Inicio         → index.html
+index.html              → Tarifas        → paginas/tarifas.html
+index.html              → Reservas       → paginas/reservas.html
+paginas/tarifas.html    → Inicio         → ../index.html
+paginas/tarifas.html    → Tarifas        → tarifas.html
+paginas/tarifas.html    → Reservas       → reservas.html
+paginas/reservas.html   → Inicio         → ../index.html
+paginas/reservas.html   → Tarifas        → tarifas.html
+paginas/reservas.html   → Reservas       → reservas.html
+
+Regla: desde la raíz se entra a la subcarpeta con "paginas/"; desde paginas/ se sube
+un nivel con "../" y entre páginas hermanas basta el nombre del archivo.
+
+Horario de atención (reservas.html)
+  Lunes a viernes:                 7:00 a. m. a 7:00 p. m.
+  Sábados, domingos y festivos:    6:00 a. m. a 2:00 p. m.
+
+Recorrido de las 9 combinaciones con Network: [COMPLETAR: sin errores 404]
+Commit: "feat: v0.1 sitio navegable con menú común, pie de página y página de reservas"
+
+
+----------------------------------------------------------------
+MINIRETO 5 - ESTRUCTURA CON SIGNIFICADO
+----------------------------------------------------------------
+ESQUEMA DE REGIONES
+
+index.html
+  header
+    nav (Inicio, Tarifas y rutas, Reservas)
+    h1 Rueda Libre + bienvenida + logo
+  main
+    section ¿Quiénes somos?
+    section Nuestros servicios
+      article Alquiler por horas o días
+      article Tours guiados
+      article Equipamiento completo
+      article Asistencia en ruta
+    section ¿Cómo alquilar?
+    section Encuéntranos
+  footer (nombre, año, correo)
+
+paginas/tarifas.html
+  header
+    nav
+    h1 Tarifas de Rueda Libre + logo
+  main
+    section #alquiler (tabla de tarifas)
+    section #recorridos (tabla de recorridos)
+    section #informacion
+      aside Qué llevar (lista)
+  footer
+
+paginas/reservas.html
+  header
+    nav
+    h1 Reserva tu bicicleta
+  main
+    section #formulario-reserva
+    contacto (correo)
+    aside Horario de atención (dl)
+  footer
+
+JUSTIFICACIÓN DE div Y span
+- No se usó ningún <div>.
+- Un único <span> (versión final): la etiqueta "Nuevo" de la tarjeta de alquiler.
+  Se justifica porque no existe una etiqueta con significado equivalente: es solo un
+  adorno visual que se posiciona con CSS.
+
+Verificación: un solo <main> por página, jerarquía de encabezados sin cambios,
+enlaces funcionando. Resultado: [COMPLETAR]
+
+
+----------------------------------------------------------------
+MINIRETO 6 - EL FORMULARIO DE RESERVAS
+----------------------------------------------------------------
+Formulario dentro de <section id="formulario-reserva">, con action="/enviar-reserva"
+y method="post". Tres grupos (fieldset + legend): Tus datos, Tu alquiler, Confirmación.
+
+CONTROLES
+  Nombre completo         input type="text"      name="nombre"
+  Número de documento     input type="text"      name="documento"
+  Correo electrónico      input type="email"     name="correo"
+  Celular                 input type="tel"       name="celular"
+  Fecha del alquiler      input type="date"      name="fecha"
+  Tipo de bicicleta       3 input type="radio"   name="bicicleta" (el mismo en los tres)
+  Plan de alquiler        select                 name="plan"
+  Cantidad de bicicletas  input type="number"    name="cantidad"
+  Recorrido guiado        select                 name="recorrido"
+  Comentarios             textarea               name="comentarios"
+  Políticas               input type="checkbox"  name="politicas"
+  Envío                   button type="submit"
+
+JUSTIFICACIÓN DE TRES ELECCIONES
+1. Tipo de bicicleta → radio. Son solo tres opciones que se excluyen entre sí. Con
+   radio quedan todas visibles y, al compartir el mismo name, solo se puede marcar una.
+2. Fecha del alquiler → input type="date". Abre un selector de calendario y entrega la
+   fecha en formato estándar (AAAA-MM-DD), lo que evita fechas mal escritas.
+3. Aceptación de políticas → checkbox con required. Es una decisión de sí o no y, con
+   required, el formulario no se envía sin aceptarla.
+
+Pruebas:
+- Clic en cada etiqueta activa su campo: [COMPLETAR]
+- Los radios solo permiten elegir uno: [COMPLETAR]
+- Todos los controles tienen name (DevTools > Elements): [COMPLETAR]
+
+
+----------------------------------------------------------------
+MINIRETO 7 - RESERVAS SIN ERRORES: VALIDACIÓN Y TECLADO
+----------------------------------------------------------------
+REGLA DEL CLIENTE → ATRIBUTOS
+  Nombre       required minlength="3" maxlength="60"
+  Documento    required pattern="[0-9]{6,10}" minlength="6" maxlength="10" + title
+  Correo       type="email" required
+  Celular      required pattern="3[0-9]{9}" minlength="10" maxlength="10" + title
+  Fecha        type="date" min="2026-11-01" max="2026-12-31" required
+  Tipo bici    required en los tres radios
+  Plan         required (la primera opción está vacía)
+  Cantidad     type="number" min="1" max="6" step="1" required
+  Comentarios  maxlength="300" (opcional)
+  Políticas    type="checkbox" required
+
+TABLA DE PRUEBAS
+Campo        | Dato de prueba      | Resultado esperado                       | Resultado obtenido
+Nombre       | "Al"                | Rechaza: mínimo 3 caracteres             | [COMPLETAR]
+Documento    | "12ab5678"          | Rechaza: solo números                    | [COMPLETAR]
+Documento    | "12345"             | Rechaza: menos de 6 dígitos              | [COMPLETAR]
+Correo       | "juan@"             | Rechaza: formato inválido                | [COMPLETAR]
+Celular      | "1234567890"        | Rechaza: no empieza por 3                | [COMPLETAR]
+Celular      | "300123"            | Rechaza: menos de 10 dígitos             | [COMPLETAR]
+Celular      | "3001234567"        | Acepta                                   | [COMPLETAR]
+Fecha        | 31/10/2026          | Rechaza: anterior al 1 de noviembre      | [COMPLETAR]
+Fecha        | 01/01/2027          | Rechaza: posterior al 31 de diciembre    | [COMPLETAR]
+Cantidad     | "7"                 | Rechaza: máximo 6                        | [COMPLETAR]
+Cantidad     | "0"                 | Rechaza: mínimo 1                        | [COMPLETAR]
+Plan         | sin elegir          | Rechaza: obligatorio                     | [COMPLETAR]
+Tipo bici    | sin elegir          | Rechaza: obligatorio                     | [COMPLETAR]
+Comentarios  | 301 caracteres      | No deja escribir más de 300              | [COMPLETAR]
+Políticas    | sin marcar          | Rechaza: debe aceptarlas                 | [COMPLETAR]
+
+RECORRIDO CON TECLADO
+Orden: enlace para saltar, menú, nombre, documento, correo, celular, fecha, tipo de
+bicicleta (flechas entre opciones), plan, cantidad, recorrido, comentarios, políticas
+(barra espaciadora) y botón de envío (Enter).
+Orden lógico: [COMPLETAR]   Correcciones hechas: [COMPLETAR]
+
+
+----------------------------------------------------------------
+MINIRETO 8 - AUDITORÍA DE ACCESIBILIDAD, CONTRASTE Y PUBLICACIÓN
+----------------------------------------------------------------
+HALLAZGOS Y CORRECCIONES
+1. El dibujo de la bicicleta de "¿Quiénes somos?" es decorativo y tenía alt descriptivo.
+   → alt="".
+2. No había forma de saltarse el menú con el teclado.
+   → Enlace "Saltar al contenido principal" hacia <main id="contenido"> en las tres páginas.
+3. El menú no indicaba la página actual a los lectores de pantalla.
+   → aria-current="page" en el enlace de la página actual.
+4. El <nav> no tenía nombre.
+   → aria-label="Menú principal".
+5. El enlace al mapa abría pestaña nueva sin avisarlo.
+   → El texto termina en "(se abre en una pestaña nueva)"; WhatsApp usa aria-label equivalente.
+6. "Tipo de bicicleta" no estaba asociado a los radios.
+   → role="radiogroup" con aria-labelledby.
+7. El formato de documento, celular y fecha solo estaba en el atributo title.
+   → Pasó a la etiqueta visible.
+8. No se distinguían los campos opcionales.
+   → "(opcional)" en recorrido y comentarios, y aviso en el texto inicial.
+Ya cumplían: lang="es", títulos distintos por página, jerarquía de encabezados,
+scope en tablas, alt descriptivo en logo y en la ilustración de la ruta.
+
+CONTRASTE WCAG (calculado con la fórmula oficial; confirmar en WebAIM)
+Combinación                        Ratio     Clasificación
+Blanco sobre Verde Ruta            5,31:1    Apta para texto normal
+Blanco sobre Naranja Pedal         2,22:1    No apta
+Azul Noche sobre Naranja Pedal     7,20:1    Apta para texto normal
+Azul Noche sobre Crema            14,83:1    Apta para texto normal
+Gris Asfalto sobre Crema           5,57:1    Apta para texto normal
+Verde Ruta sobre Crema             4,93:1    Apta para texto normal
+Naranja Pedal sobre Crema          2,06:1    No apta
+Blanco sobre Azul Noche           15,97:1    Apta para texto normal
+Ninguna combinación queda como "solo texto grande".
+
+MAPA DE USO DE COLOR
+  Texto principal:      Azul Noche (#14213D) sobre Crema (#FAF6EF)
+  Texto secundario:     Gris Asfalto (#5B6470) sobre Crema
+  Títulos:              Azul Noche
+  Fondo general:        Crema
+  Botones principales:  fondo Verde Ruta con texto blanco
+  Enlaces:              Verde Ruta sobre Crema
+  Botones secundarios:  fondo Naranja Pedal con texto Azul Noche (nunca texto blanco)
+  Destacados:           Naranja Pedal solo como fondo o borde, nunca como color de texto
+
+PUBLICACIÓN
+  GitHub Pages: Settings > Pages > rama main, carpeta / (root)
+  URL publicada: https://[COMPLETAR: usuario].github.io/rueda-libre/
+  Enlace agregado a la descripción del repositorio (About > Website): [COMPLETAR]
+  Recorrido en línea (páginas, imágenes, enlaces): [COMPLETAR]
+  Diferencias entre local y línea (mayúsculas/minúsculas en nombres): [COMPLETAR]
+
+
+----------------------------------------------------------------
+MINIRETO 9 - LA IDENTIDAD DE RUEDA LIBRE
+----------------------------------------------------------------
+- css/styles.css enlazado en las tres páginas (css/styles.css desde la raíz y
+  ../css/styles.css desde paginas/), después de las fuentes.
+- Google Fonts: Montserrat 700 para títulos y Open Sans 400 y 600 para textos, con
+  preconnect y hoja de fuentes antes de la hoja propia.
+- Variables en :root: cinco colores de marca (más --blanco), dos familias tipográficas
+  con respaldo y escala de espaciado de cuatro tamaños en rem.
+- body recibe fuente, color y fondo mediante var(); los títulos usan un solo selector
+  agrupado (h1, h2, h3, h4, h5, h6).
+- Ningún HTML contiene style="" ni <style>.
+
+COMPROBACIÓN DE HERENCIA (DevTools > Styles y Computed, sobre un <p>)
+  Propiedad que SE HEREDA:      color. El <p> no tiene regla propia y en Computed
+                                muestra rgb(20, 33, 61) tomado del body.
+                                También font-family (Open Sans).
+  Propiedad que NO se hereda:   background-color. El body tiene fondo Crema, pero el
+                                <p> muestra transparent: el fondo se ve porque el body
+                                está detrás. Otro ejemplo: margin.
+  Tipografías en Computed:      títulos en Montserrat, párrafos en Open Sans.
+  Valores observados en mi navegador: [COMPLETAR]
+
+
+----------------------------------------------------------------
+MINIRETO 10 - NAVEGACIÓN CON ESTADOS Y SIN CONFLICTOS
+----------------------------------------------------------------
+CONFLICTO DE CASCADA
+Reglas del compañero:
+  #menu a  { color: var(--gris-asfalto); }                      especificidad (1,0,1)
+  .activo  { color: var(--verde-ruta); font-weight: 600; }      especificidad (0,1,0)
+
+Causa: ambas reglas apuntan al mismo <a>. Gana "#menu a" porque un id pesa más que
+cualquier cantidad de clases. En DevTools > Styles la declaración color de .activo
+aparece tachada. (font-weight sí se aplica, porque "#menu a" no la define.)
+
+Corrección: "#menu a.activo" → (1,1,1). Gana por especificidad, sin !important ni
+estilos en línea, y va después de las reglas de hover y focus.
+
+ESTADOS
+  Menú:    normal gris; hover y focus en Azul Noche con borde inferior;
+           página actual en Verde Ruta, grosor 600 y borde verde.
+  Botón:   normal Verde Ruta con texto blanco; hover y focus con fondo Azul Noche;
+           focus con contorno de 3 px.
+  Campos:  hover con contorno gris de 2 px; focus con contorno Verde Ruta de 3 px.
+  Enlaces: hover en Azul Noche con subrayado más grueso; focus con contorno verde.
+
+CONTRASTE DE LOS ESTADOS DE TEXTO
+  Enlace normal y página actual:     Verde Ruta sobre Crema        4,93:1
+  Menú normal:                       Gris Asfalto sobre Crema      5,57:1
+  Hover y focus de enlaces y menú:   Azul Noche sobre Crema       14,83:1
+  Botón normal:                      Blanco sobre Verde Ruta       5,31:1
+  Botón hover y focus:               Blanco sobre Azul Noche      15,97:1
+
+Revisión con el botón :hov y recorrido con Tab en las tres páginas: [COMPLETAR]
+
+
+----------------------------------------------------------------
+MINIRETO 11 - TODO EN SU LUGAR: MODELO DE CAJA
+----------------------------------------------------------------
+- box-sizing: border-box en todos los elementos (*, ::before, ::after).
+- header, main y footer: max-width de 48rem, centrados con márgenes laterales auto.
+- Portada de inicio: min-height de 60vh.
+- Tarjetas: relleno, borde de 1px, esquinas de 0.5rem, separación entre tarjetas y
+  imagen con width: 100%.
+- Tablas: relleno en celdas, bordes y encabezados Azul Noche con texto blanco (15,97:1).
+- Formulario: etiqueta sobre su campo, campos al 100% del ancho, separación entre
+  grupos y botón con relleno generoso.
+- Menú en una fila: #menu li con display: inline-block.
+- Solo los bordes y contornos usan px; el resto usa rem, % o vh.
+
+MEDICIÓN DEL ANCHO DE LA TARJETA (article con width: 20rem agregado en DevTools)
+  Con box-sizing: border-box   → total 320 px (contenido 286 + relleno 32 + borde 2)
+  Con box-sizing: content-box  → total 354 px (contenido 320 + relleno 32 + borde 2)
+  Con content-box el relleno y el borde se suman al ancho declarado.
+  Valores observados en mi navegador: border-box [COMPLETAR] / content-box [COMPLETAR]
+
+
+----------------------------------------------------------------
+MINIRETO 12 - RUEDA LIBRE v1.0: LANZAMIENTO
+----------------------------------------------------------------
+- Etiqueta "Nuevo": <span class="etiqueta-nuevo"> en la tarjeta de alquiler. La tarjeta
+  tiene position: relative y la etiqueta position: absolute con top y right, de modo
+  que queda anclada a la esquina superior derecha sin desplazar el contenido.
+  Color: Azul Noche sobre Naranja Pedal (7,20:1).
+- WhatsApp: enlace con class="boton-cta whatsapp" en las tres páginas, position: fixed
+  en la esquina inferior derecha (bottom y right con la escala de espaciado),
+  target="_blank". El body tiene padding-bottom de 5rem, así que no tapa el final de
+  la página. Es el último elemento del documento y se puede enfocar con el teclado.
+- Consistencia: encabezado, menú, botones y pie comparten una sola hoja de estilos.
+- styles.css reorganizado en seis secciones: variables, base, estructura, navegación,
+  componentes y formulario; selectores repetidos agrupados y reglas duplicadas eliminadas.
+- Verificaciones sobre el código: sin !important, sin colores fuera de :root, sin
+  estilos en línea, un solo nav, main y footer por página.
+- Revisión en DevTools (declaraciones tachadas, 404) y recorrido final con teclado: [COMPLETAR]
+- Número de WhatsApp: 573000000000 es de ejemplo; reemplazar por el real del cliente.
+
+PUBLICACIÓN v1.0
+  Commit de lanzamiento: "release: Rueda Libre v1.0 con etiqueta Nuevo, WhatsApp fijo y
+                          estilos consolidados" (etiqueta v1.0)
+  URL del sitio v1.0: https://[COMPLETAR: usuario].github.io/rueda-libre/
+  Verificación en línea (enlaces, imágenes, fuentes, estados, validación): [COMPLETAR]
+
+
+================================================================
+CIERRE DE LA SEMANA
+================================================================
+
+QUÉ CONSTRUÍ EN CADA MINIRETO
+ 1. Repositorio, estructura de carpetas, index.html base y bitácora.
+ 2. Página de inicio con encabezados, énfasis, listas, imágenes y enlaces.
+ 3. Página de tarifas con tablas accesibles y rutas relativas entre carpetas.
+ 4. v0.1: página de reservas, menú y pie comunes; sitio navegable.
+ 5. Etiquetas semánticas en las tres páginas.
+ 6. Formulario de reservas con controles adecuados y etiquetas asociadas.
+ 7. Validación nativa según las reglas del cliente y uso con teclado.
+ 8. Auditoría de accesibilidad, mapa de contraste y publicación en GitHub Pages.
+ 9. Hoja de estilos externa con variables, tipografías y herencia.
+10. Estados hover y focus, página activa y resolución de un conflicto de especificidad.
+11. Box model: tarjetas, tablas, formulario, contenedor centrado y menú en fila.
+12. Posicionamiento de la etiqueta y de WhatsApp, consolidación del CSS y lanzamiento.
+
+PRODUCTO FINAL
+Tres páginas (Inicio, Tarifas y rutas, Reservas) con menú, pie y estilo comunes,
+formulario con validación nativa, paleta y tipografías de marca, contraste validado
+y publicación en GitHub Pages.
+
+QUÉ MEJORARÍA
+- Hacer el diseño adaptable a pantallas pequeñas (menú y tablas de cinco columnas).
+- Conectar el formulario a un servicio que reciba los datos y confirme la reserva.
+- Reemplazar el número de WhatsApp por el real y crear una tarjeta propia para las
+  bicicletas eléctricas si la etiqueta "Nuevo" debe ir solo en ellas.
+- Optimizar el peso de las imágenes y revisar sus textos alternativos.
+- Hacer un commit por cada MiniReto desde el inicio para tener un historial más claro.

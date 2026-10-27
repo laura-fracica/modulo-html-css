@@ -3,164 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-<<<<<<< HEAD
+    <meta name="description" content="Reserva tu bicicleta en Rueda Libre, Medellín. Completa el formulario con tus datos, la fecha, el tipo de bicicleta y el plan que prefieras.">
+    <title>Reservas | Rueda Libre</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/styles.css">
-=======
->>>>>>> 1bbddb8399686e4e399dc2d0f8283f9d92efff35
 </head>
 <body>
 
+    <a href="#contenido">Saltar al contenido principal</a>
+
     <header>
-        <h1>Reserva tu bicicleta</h1>
-<<<<<<< HEAD
-        <p>Contactanos</p> <a href="mailto:hola@ruedalibre.example" target=""_blank">Escribir un correo a Rueda Libre</a>
-        
-        <nav>
+        <nav aria-label="Menú principal">
             <ul id="menu">
                 <li><a href="../index.html">Inicio</a></li>
-                <li><a href="../paginas/tarifas.html">Tarifas</a></li>
-                <li><a href="../paginas/tarifas.html#planes">Planes</a></li>
-                <li><a class="activo" href="../paginas/reservas.html">Reservas</a></li>
-=======
-        <p>Contactanos</p> <a href="hola@ruedalibre.example" target=""_blank">GMAIL</a>
-        
-        <nav>
-            <ul>
-                <li>Inicio <a href="../index.html">Inicio</a></li>
-                <li>Tarifas <a href="../paginas/tarifas.html">Tarifas</a></li>
-                <li>Rutas <a href="../paginas/tarifas.html#planes">Planes</a></li>
-                <li>Reservas <a href="../paginas/reservas.html">Reservas</a></li>
->>>>>>> 1bbddb8399686e4e399dc2d0f8283f9d92efff35
+                <li><a href="tarifas.html">Tarifas y rutas</a></li>
+                <li><a class="activo" href="reservas.html" aria-current="page">Reservas</a></li>
             </ul>
         </nav>
+        <h1>Reserva tu bicicleta</h1>
     </header>
 
-    <main>
+    <main id="contenido">
         <section id="formulario-reserva">
+            <h2>Formulario de reserva</h2>
+            <p>Todos los campos son obligatorios, excepto los marcados como opcionales. Las reservas se aceptan del 1 de noviembre al 31 de diciembre de 2026.</p>
+
             <form action="/enviar-reserva" method="post">
+
                 <fieldset>
-                    <legend id="datos">Tus datos:</legend>
+                    <legend>Tus datos</legend>
+
                     <p>
                         <label for="nombre">Nombre completo:</label>
-                        <input type="text" 
-                        id="nombre" 
-                        name="nombre"
-                        minlength="3"
-                        maxlength="20" required>
-                        
+                        <input type="text" id="nombre" name="nombre" minlength="3" maxlength="60" autocomplete="name" required>
+                    </p>
 
-<<<<<<< HEAD
-                        <label for="documento">Documento:</label>
-=======
-                        <label for="docuemento">Documento:</label>
->>>>>>> 1bbddb8399686e4e399dc2d0f8283f9d92efff35
-                        <input type="text" 
-                        inputmode="numeric"
-                        id="documento" 
-                        name="documento"
-                        minlength="6"
-                        maxlength="10" required>
+                    <p>
+                        <label for="documento">Número de documento (solo números, 6 a 10 dígitos):</label>
+                        <input type="text" id="documento" name="documento" inputmode="numeric" pattern="[0-9]{6,10}" title="Solo números, entre 6 y 10 dígitos. Ejemplo: 1020304050" minlength="6" maxlength="10" required>
+                    </p>
 
-                        <label for="email">Email:</label>
-                        <input type="email" 
-                        id="email" 
-                        name="email"
-                        placeholder="example@gmail.com" required>
+                    <p>
+                        <label for="correo">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" placeholder="ejemplo@gmail.com" autocomplete="email" required>
+                    </p>
 
-                        <label for="celular">Celular:</label>
-                        <input type="text"
-                        inputmode="numeric" 
-                        name="celular" 
-                        id="celular" 
-                        pattern="3[0-9]{2,9}"
-                        placeholder="3121234567"
-                        required
-                        >
-
+                    <p>
+                        <label for="celular">Celular (10 dígitos, empieza por 3):</label>
+                        <input type="tel" id="celular" name="celular" inputmode="numeric" pattern="3[0-9]{9}" title="10 dígitos y debe empezar por 3. Ejemplo: 3001234567" minlength="10" maxlength="10" placeholder="3001234567" autocomplete="tel" required>
                     </p>
                 </fieldset>
 
                 <fieldset>
-                    <legend id="alquiler">Tu alquiler:</legend>
+                    <legend>Tu alquiler</legend>
+
                     <p>
-                        <label for="tiempo">Fecha:</label>
-                        <input type="number" 
-                        id="tiempo" 
-                        name="tiempo" 
-                        min="2026-11-01"
-                        max="2026-12-31" 
-                        placeholder="año-mes-dia"
-                        required>
-                
-<<<<<<< HEAD
-                        <label for="bicicleta">Selecciona un tamaño:</label>
-=======
-                        <label for="opciones">Selecciona un tamaño:</label>
->>>>>>> 1bbddb8399686e4e399dc2d0f8283f9d92efff35
-                            <select name="bicicleta" id="bicicleta">
-                                <option value="pequeña">Urbana</option>
-                                <option value="mediana">Montaña</option>
-                                <option value="grande">Electrica</option>
-                            </select>
-                            
-                        <label for="plan">Plan a escoger:</label>
-                        <select name="plan" id="plan">
-                            <option value="plan1">Rio y parques</option>
-                            <option value="plan2">Sabores de barrio</option>
-                            <option value="plan3">Reto las palmas</option>
+                        <label for="fecha">Fecha del alquiler (1 nov. a 31 dic. de 2026):</label>
+                        <input type="date" id="fecha" name="fecha" min="2026-11-01" max="2026-12-31" required>
+                    </p>
+
+                    <p id="etiqueta-bicicleta">Tipo de bicicleta:</p>
+                    <p role="radiogroup" aria-labelledby="etiqueta-bicicleta">
+                        <input type="radio" id="bici-urbana" name="bicicleta" value="urbana" required>
+                        <label for="bici-urbana">Urbana</label>
+
+                        <input type="radio" id="bici-montana" name="bicicleta" value="montana" required>
+                        <label for="bici-montana">Montaña</label>
+
+                        <input type="radio" id="bici-electrica" name="bicicleta" value="electrica" required>
+                        <label for="bici-electrica">Eléctrica</label>
+                    </p>
+
+                    <p>
+                        <label for="plan">Plan de alquiler:</label>
+                        <select id="plan" name="plan" required>
+                            <option value="">Selecciona un plan</option>
+                            <option value="1-hora">1 hora</option>
+                            <option value="medio-dia">Medio día (4 h)</option>
+                            <option value="dia-completo">Día completo</option>
                         </select>
+                    </p>
 
-<<<<<<< HEAD
-                        <label for="cantidaddebicileta">Cantidad de Bicicletas:</label>
-=======
-                        <label for="cantidaddebicicleta">Cantidad de Bicicletas:</label>
->>>>>>> 1bbddb8399686e4e399dc2d0f8283f9d92efff35
-                        <input type="cantidad" 
-                        name="cantidad" 
-                        id="cantidaddebicileta"
-                        pattern="1[0-6]{1,2}">
-                    
-                    </p>                                
+                    <p>
+                        <label for="cantidad">Cantidad de bicicletas:</label>
+                        <input type="number" id="cantidad" name="cantidad" min="1" max="6" step="1" placeholder="1 a 6" required>
+                    </p>
+
+                    <p>
+                        <label for="recorrido">Recorrido guiado (opcional):</label>
+                        <select id="recorrido" name="recorrido">
+                            <option value="ninguno">Ninguno</option>
+                            <option value="rio-y-parques">Río y Parques</option>
+                            <option value="sabores-de-barrio">Sabores de Barrio</option>
+                            <option value="reto-las-palmas">Reto Las Palmas</option>
+                        </select>
+                    </p>
                 </fieldset>
 
                 <fieldset>
-                    <legend id="confirmacion">Confirmacion:</legend>
-                    <label for="comentarios"></label>
-                    <input type="text" value="Comentarios" placeholder="comentarios" maxlength="300">
+                    <legend>Confirmación</legend>
 
-                    <label for="politicas">Politicas de alquiler:</label>
-                    <button id="politicas">Aceptar</button>
-                    <input type="politicas" required> 
+                    <p>
+                        <label for="comentarios">Comentarios (opcional):</label>
+                    </p>
+                    <p>
+                        <textarea id="comentarios" name="comentarios" rows="5" cols="40" maxlength="300" placeholder="¿Algo que debamos saber? (máximo 300 caracteres)"></textarea>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" id="politicas" name="politicas" value="aceptadas" required>
+                        <label for="politicas">Acepto las políticas de alquiler</label>
+                    </p>
                 </fieldset>
 
-                <fieldset>
-                    <button>ENVIAR</button>
-                    <input type="button" name="enviar" id="enviar">
-                </fieldset>
+                <p><button class="boton-cta" type="submit">Enviar reserva</button></p>
 
             </form>
         </section>
+
+        <p>¿Prefieres escribirnos? Correo de contacto: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+
+        <aside>
+            <h2>Horario de atención</h2>
+            <dl>
+                <dt>Lunes a viernes</dt>
+                <dd>7:00 a. m. a 7:00 p. m.</dd>
+
+                <dt>Sábados, domingos y festivos</dt>
+                <dd>6:00 a. m. a 2:00 p. m.</dd>
+            </dl>
+        </aside>
     </main>
 
-
     <footer>
-        <dd>Rueda libre</dd>
-<<<<<<< HEAD
-        <dd><a href="mailto:hola@ruedalibre.example">Contactanos</a></dd>
-        <dd>2026</dd>
+        <p>Rueda Libre &copy; 2026 · <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
     </footer>
 
-    <a class="whatsapp" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+    <a class="boton-cta whatsapp" href="https://wa.me/573000000000" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp (se abre en una pestaña nueva)">WhatsApp</a>
 
-=======
-        <dd><a href="hola@ruedalibre.example">Contactanos</a></dd>
-        <dd>2026</dd>
-    </footer>
-
->>>>>>> 1bbddb8399686e4e399dc2d0f8283f9d92efff35
 </body>
 </html>
